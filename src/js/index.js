@@ -1,6 +1,18 @@
 const $ = (selector) => document.querySelector(selector);
 
+const store = {
+  setLocalStorage(menu) {
+    localStorage.setItem('menu', JSON.stringify(menu));
+  },
+  getLocalStorage() {
+    localStorage.getItem('menu');
+  },
+};
+
 function App() {
+  // 상태는 변하는 데이터 , 이 앱에서 변하는 것이 무엇인가 - (갯수,) 메뉴명
+  // 갯수는 메뉴명만 알아도 알수있는 값이기 때문에 따로 localstorage에 저장되는게 아니라 관리 필요없음.
+
   // 메뉴 총 갯수 count
   const updateMenuCount = () => {
     const menuCount = $('#espresso-menu-list').querySelectorAll('li').length;
